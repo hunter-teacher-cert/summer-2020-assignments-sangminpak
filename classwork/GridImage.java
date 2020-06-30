@@ -9,10 +9,11 @@ public class GridImage {
     int cols = 20;
 
     int[][] grid = new int[rows][cols];
-
-    print2d(grid);
-    System.out.println();
 	
+	colPop (grid, 3, 555);
+	rowPop (grid, 6, 777);
+	print2d(grid);
+	System.out.println();
 
   }
 
@@ -29,13 +30,22 @@ public class GridImage {
   }//end print2d
 
   public static void colPop(int[][] d2, int c, int value) {
+	  for (int r=0; r < d2.length; r++) {
+		  d2[r][c] = value;
+	  }	  
   }//end colPop
 
   public static void rowPop(int[][] d2, int r, int value) {
+	  for (int c=0; c < d2[r].length; c++) {
+		  d2[r][c] = value;
+	  }
+	  
   }//end rowPop
 
   public static void invert(int[][] d2) {
-  }//end invert
+	
+  }
+  //end invert
 
   /*
     0: up + left
@@ -44,7 +54,10 @@ public class GridImage {
     3: down + right
    */
   public static void diagonal(int[][] d2, int r, int c, int direction, int value) {
-	  
   }//end diagonal
-//i am so lost! i will do prework with array first and come back to this problem!
+
 }
+
+//I was able to figure out colPop and rowPop with the help of Joshua, Huan, and Ken.
+//Still a little confused about r and c, but when I write out the loop, it makes sense. 
+//I am still getting around to the invert and diagonal part.
