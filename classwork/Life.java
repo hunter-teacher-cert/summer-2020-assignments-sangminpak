@@ -11,7 +11,7 @@ class Life{
 		//type of the variable "board" is character. this initiates the variable
 		for (int r = 0; r < rows; r++) {
 			for (int c = 0; c < cols; c++) {
-				board[r][c] = '0';
+				board[r][c] = 'O';
 				
 				
 			}
@@ -100,15 +100,19 @@ class Life{
 	public static char getNextGenCell(char[][] board, int r, int c){
 		int value = countNeighbours(board, r, c);
 		
-		if (value == 2 || value == 3) {
+		if (board[r][c] == 'X' && (value == 2 || value == 3)) {
 			
-			board[r][c] = '5';
-			printBoard(board);
-		
+			return 'X';
 		}
 		
-	
-		return '0';
+		else if (board[r][c] == 'O' && value == 3) {
+			
+			return 'X';
+		 
+		}
+		
+		else
+			return 'O';
 	}
 	
 	
