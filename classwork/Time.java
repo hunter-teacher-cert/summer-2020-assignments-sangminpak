@@ -4,9 +4,9 @@ import java.util.*;
 
 
 public class Time{
-	private int hour;
-	private int minute;
-	private double second;
+	int hour;
+	int minute;
+	double second;
 	
 	public Time() {
 		
@@ -40,7 +40,25 @@ public class Time{
 		System.out.printf("%02d:%02d:%04.1f\n", t.hour, t.minute, t.second);
 		
 	}
+	public String toString(){
+		
+		int newHour;
+		String meridies;
+			
 	
+		if (this.hour > 12) {
+			newHour = this.hour - 12;
+			meridies = "PM";
+		}
+		else { 
+		newHour = this.hour;
+		meridies = "AM";
+		}
+		
+	
+		return String.format("The current time is %02d:%02d:%04.1f " + meridies, newHour, this.minute, this.second);
+		
+	}
 	public boolean equals (Time that) {
 		return this.hour == that.hour
 		&& this.minute == that.minute
@@ -101,16 +119,30 @@ public Time add(Time t2) {
 		}
 	}
 	
-//public static void main(String[] args) {
-	//Time time = new Time (10, 20, 30.0);
+	public void addMinutes(int min) {
+		this.minute += min;
+		while (this.minute >= 60.0) {
+			this.minute -= 60.0;
+			this.hour += 1;
+		}
+		
+	 
+	}
+	
+	//public difference (Time other) {
+		
+	
+public static void main(String[] args) {
+	Time time = new Time (23, 20, 30.0);
 	//printTime(time);
 	//Time startTime = new Time(18,50, 0.0);
 	//Time runningTime = new Time(2, 16, 0.0);
 	//Time endTime = Time.add(startTime, runningTime);
 	//printTime(add(startTime, runningTime));
+	System.out.print(time.toString());
 	
 	
 }
 
-	//}
+	}
 
