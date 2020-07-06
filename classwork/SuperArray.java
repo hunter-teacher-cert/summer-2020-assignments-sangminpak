@@ -45,14 +45,50 @@ public class SuperArray {
 	
 	}
 	
+	public boolean isEmpty() {
+		if (numberElements == 0) {
+			return true;
+		}
+		
+		return false;
+		
+	}
+	
+	public String toString() {
+		String stringdata = " ";
+		
+		for (int i = 0; i <this.data.length; i++) {
+			stringdata = stringdata + this.data[i] + ", ";
+		}
+		
+		return stringdata;
+		
+	}
+	
+	public void grow() {
+	
+		int[] newArray = new int [this.data.length+1];
+		for (int i = 0; i <this.data.length; i++) {
+				newArray[i] = this.data[i];
+		
+				
+		}
+		this.data = newArray;
+	}
+	
 public static void main (String[] args) {
 	SuperArray object1 = new SuperArray();
 	
 	
 	
 	object1.add(3);
-	object1.printArray();
-	System.out.print(object1.get(2));
+	//object1.printArray();
+	System.out.println(object1.get(2));
+	System.out.println(object1.isEmpty());
+	System.out.println(object1.toString());
+	object1.grow();
+	System.out.println(object1.toString());
+	
 	
 
 }
