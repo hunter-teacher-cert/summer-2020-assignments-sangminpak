@@ -60,20 +60,52 @@ public class LList{
 	
 	public String get(int index){
 		int count = 0;
+		//counter variable
+		
 		Node currentNode = this.head;
+		//makes currentNode start at head
+		
 		while (count != index && currentNode.getData() != null) {
+			//while the counter is not equal to index(the int value) AND
+			//the currentNode's value is not null, it goes in the while loop
+			
 			if(currentNode.getNext() == null) {
 				return null;
+				//if currentNOde is null, then it's null
+			}
+			else{
+				currentNode=currentNode.getNext();
+				count++;
+				
+				//if currentNode is NOT null, it goes to the next node and counter variable goes up by 1
+			}
+			
+		}
+		return currentNode.getData();
+		
+		//if the counter is equal to index, it just returns the value at that position.
+	}	
+		
+	
+	public void set(int index, String value) {
+		int count=0;		
+		Node currentNode = this.head;
+		
+		//basically initializing to start from the beginning, like get()
+		
+		while (count != index && currentNode.getData () != null) {
+			if (currentNode.getNext() == null) {
+				
 			}
 			else{
 				currentNode=currentNode.getNext();
 				count++;
 			}
-			
 		}
-		return currentNode.getData();
-	}	
+		currentNode.setData(value);
 		
-	
+		//pretty much the same with get, but it returns a different thing. instead of getting data, it sets
+		//whatever the value is to that position
+	}
 }
 
