@@ -1,3 +1,4 @@
+
 import java.io.*;
 import java.util.*;
 
@@ -8,7 +9,13 @@ public class Driver{
 		
 	LList l = new LList();
 	
+	l.add("Hello");
+	l.add("My name is");
+	l.add("Spongebob");
+	System.out.println(l);
 	
+	System.out.println(l.isEmpty());
 }
 
 }
+
