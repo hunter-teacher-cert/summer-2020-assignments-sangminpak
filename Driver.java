@@ -10,9 +10,9 @@ public class Driver{
 		
 	LList l = new LList();
 	
-	l.add("Hello");
-	l.add("My name is");
-	l.add("Spongebob");
+	l.addFront("Hello");
+	l.addFront("My name is");
+	l.addFront("Spongebob");
 	System.out.println(l);
 	
 	System.out.println(l.isEmpty());
