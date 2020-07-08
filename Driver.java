@@ -18,6 +18,9 @@ public class Driver{
 	System.out.println(l.isEmpty());
 	
 	System.out.println(l.get(2));
+	
+	l.set(1, "yo");
+	System.out.println(l);
 }
 
 }
