@@ -17,6 +17,11 @@ public class LList{
 		Node newnode = new Node(data);
 		newnode.setNext(head);
 		head = newnode;
+		
+		if (data == null)
+			throw new IllegalArgumentException();
+		
+	
 		//basically it points back to itself so that it can refer to itself.
 		//therefore head is not null anymore. It's whatever the data is.
 	}
@@ -70,7 +75,7 @@ public class LList{
 			//the currentNode's value is not null, it goes in the while loop
 			
 			if(currentNode.getNext() == null) {
-				return null;
+				throw new IndexOutOfBoundsException();
 				//if currentNOde is null, then it's null
 			}
 			else{
@@ -96,6 +101,8 @@ public class LList{
 		while (count != index && currentNode.getData () != null) {
 			if (currentNode.getNext() == null) {
 				
+			throw new IndexOutOfBoundsException();
+				
 			}
 			else{
 				currentNode=currentNode.getNext();
@@ -113,6 +120,11 @@ public class LList{
 	int count=0;
 	Node currentNode = this.head;
 	
+	if (index == 0) {
+		addFront(value);
+		throw new IndexOutOfBoundsException();
+	}
+	
 	while (count != index-1 && currentNode.getData() != null) {
 		if (count != index-1) {
 			currentNode.getNext();
@@ -127,4 +139,22 @@ public class LList{
 	//something is making it insert the value at the wrong index. When I have more time,
 	//I'm gonna draw each step of the loop and debug.
 	//but it actually inserts something somewhere. YAY
+	
+	public int search(String key) {
+		int count=0;
+		Node currentNode = this.head;
+		
+		
+		
+		while (currentNode != null) {
+			if (currentNode.getData().equals(key))
+				return count;
+		
+			currentNode = currentNode.getNext();
+			count++;
+		}
+		
+		throw new NoSuchElementException ();
+	}
+		
 }
