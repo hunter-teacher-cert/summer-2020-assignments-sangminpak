@@ -172,17 +172,22 @@ public class LList{
 		if (head == null) 
 			return;
 		
-		Node currentNode = head;
+		
 		
 		if (index == 0) {
 			head = head.getNext();
-			currentNode.setNext(null);
-			length--;
 			return;
+		} else {
+		
+		Node current = head;			
+		for (int i = 0; i < index-1; i++) {
+			current = current.getNext();
 		}
-		currentNode = currentNode.getNext();
-		index--;
-	}	
-			
+		
+		current.setNext(current.getNext().getNext());
+		
+		
+		}
+	}
 		
 }
