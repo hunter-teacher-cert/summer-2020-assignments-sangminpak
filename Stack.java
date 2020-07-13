@@ -31,7 +31,6 @@ public class Stack{
 		
 		}
 		
-		s = s + "null";
 		return s;
 		
 	}
@@ -45,15 +44,13 @@ public class Stack{
          // top = newnode; Is this part necessary? It makes sense in my head but....
      }
 
-     // public String pop(){
-          // add code to remove and return the
-          // item on the top of the stack
-          //1. get the data of the top element, 2. have the top point to the next element, 3. top is next element.
-          //so the previous 'top' element is still there but nothing is pointing to it. I THINK
+    // public String pop(){
+		 
+		 
+   
           
-          //top.getData();
-          //top = top.setNext;
-          //return data;
+        
+         
       //}
 
      public String top(){
@@ -69,11 +66,23 @@ public class Stack{
           return top == null;
       }
 
-      //public int size(){
+     public int size(){
      
+		int count=0;
+		Node currentNode = this.top;
+		
+		
+		
+		while (currentNode != null) {
+		
+			currentNode = currentNode.getNext();
+			count++;
+		}
+		
+		return count;
           // add code to return the number of items currently on the stack
           
           //this is probably similar to length() where it just counts until the end of the list.
-      //}
+      }
     
   }
