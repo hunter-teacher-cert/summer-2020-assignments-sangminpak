@@ -86,3 +86,8 @@ public class Stack{
       }
     
   }
+
+//reverse() --> first push all the elements..(?) into Stack A. Make another stack, and then pop all the elements in Stack A into new Stack.
+//parenCheck() --> check for left paren, then check for right paren. --> true ; if right paren, throw exception. If left parent, and then no right paren, throw another exception.
+//palindrome() --> Look for space, store each word as string in the first stack. Then, pop stuff into the new stack. --> Basically, use remove with checking for space between words.
+//
