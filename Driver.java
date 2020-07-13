@@ -11,10 +11,18 @@ public class Driver{
 	newStack.push("Hello");
 	newStack.push("My name is");
 	newStack.push("Spongebob");
-	System.out.println(newStack);
 	
-	System.out.println(newStack.isEmpty());
 	
+	
+	//System.out.println(newStack.isEmpty());
+	
+	//System.out.println(newStack.top());
+	//System.out.println(newStack.toString());
+	
+
+	System.out.println(newStack.toString());
+	
+	System.out.println(newStack.size());
 	
 
 }
