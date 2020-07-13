@@ -4,6 +4,7 @@ import java.util.*;
 
 public class LList{
 	private Node head;
+	private int length;
 
 	
 	public LList(){
@@ -156,5 +157,32 @@ public class LList{
 		
 		throw new NoSuchElementException ();
 	}
+	public int length() {
+		int len = 0;
+		Node curr = head;
+		while (curr.getNext() != null) {
+			len ++;
+			curr = curr.getNext();
+		}
+		length = len;
+		return length;
+	}
+	
+	public void remove (int index) {
+		if (head == null) 
+			return;
+		
+		Node currentNode = head;
+		
+		if (index == 0) {
+			head = head.getNext();
+			currentNode.setNext(null);
+			length--;
+			return;
+		}
+		currentNode = currentNode.getNext();
+		index--;
+	}	
+			
 		
 }
