@@ -39,14 +39,7 @@ public class Boogle
   //return index of target, or -1 if not found
   public static int binSearch( ArrayList al, int target )
   {
-    	int small = al.get(0);
-	
-	for (int i=1; i < al.size(); i++) {
-		if (small > al.get(i)) {
-			small = al.get(i); 
-		}
-	}
-	return small;
+    	
   }//end binSearch()
 
 
@@ -107,16 +100,15 @@ public class Boogle
     // find and return the index of the smallest value in the
     // ArrayList al from index lo to index hi inclusive 
     public static int findSmallest(ArrayList<Integer> al, int lo, int hi){
-	// assume the first item is the smallest - call it our smallest so far
+	int small = al.get(0);
 	
+	for (int i=1; i < al.size(); i++) {
+		if (small > al.get(i)) {
+			small = al.get(i); 
+		}
+	}
+	return small;
 
-	// loop over all the items
-	//   if the current item is smaller than the smalleest so far,
-	//      then the current item becomes the new smallest so far
-
-
-	// change this to return the correct answer
-	return -1;
     }
 
 
