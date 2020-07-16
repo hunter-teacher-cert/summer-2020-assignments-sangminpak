@@ -133,15 +133,16 @@ public class Boogle
 	// assume the first item is the smallest - call it our smallest so far
 	
 	int small = al.get(0);
-	
+	int position = 0;
 	
 	for (int i=1; i < al.size(); i++) {
 		if (small > al.get(i)) {
 			small = al.get(i);
+			position = i;
 			
 		}
 	}
-	return small;
+	return position;
 	
    }
    
@@ -166,28 +167,31 @@ public static void selectionSort(ArrayList al) {
 	//keep going until everything is sorted; 2 items will be left at the end!
 	// ** create a temporary variable to hold the lowest value
 	
-	int smallPosition;
-	int smallValue;
 	
+	int smallValue;
+	int smallPosition = 0;
 	
 	for (int i = 0; i < al.size() - 2; i++) {
 		
-		smallValue = findSmallest(al, i, al.size()); //findSmallest returns the position of the smallest value found
+		
+		smallPosition = findSmallest(al, i, al.size()-1); //findSmallest returns the position of the smallest value found
 		
 
-		smallValue = (int) al.get(smallPosition);
+		smallValue = (int) al.get(i);
 		
 		
 		
-		al.set(smallPosition, al.get(i));
+		
 		al.set(i, al.get(smallValue));
+		al.set(smallPosition, al.get(i));
+		
+		System.out.println(i);
 		
 		
 		/*
-		// IT COMPILEDDDD
-		//(int) was necessary in front of al.get(smallPosition).
-		//it's still hard to understand what's object and what's integer etc etc
-		//and it does not do what I want....lol
+		well now I get index out of bounds exception, which means that 
+		it probably runs properly! I just have to add bounds!!
+		WOW
 		
 		*/
 		
