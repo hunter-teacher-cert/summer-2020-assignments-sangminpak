@@ -174,6 +174,7 @@ public static void selectionSort(ArrayList al) {
 		al.get(i) = al.get(startIndex); //i get errors starting from here
 		al.get(startIndex) = temp;
 		startIndex ++;
+		i++;
 	}
 	
 	//because of the syntax errors, I can't get it to compile,
