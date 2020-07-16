@@ -1,5 +1,5 @@
 /**
-   classwork -- Day 11 | 0b1011 | 0x0b
+   classwork -- Day 10 | 0b1010 | 0x10
    class: Boogle
    A tester class for code analysis and search exploration.
    USAGE:
@@ -37,15 +37,51 @@ public class Boogle
 
 
   //return index of target, or -1 if not found
-  public static int binSearch( ArrayList al, int target )
-  {
-    	
-  }//end binSearch()
-
-
-
-	 
+  /*
+ public static int binSearch( ArrayList al, int target )
+  //{
+    // use size() to check for the size/length of the array
+	//minimum is always 0(because index starts at 0), so i guess it won't matter
+	//you can just do length-1 for the maximum
 	
+	// int middle = divide the length-1 by 2 (is it rounded down automatically?)
+	// traverse the list from index 0 to the middle
+	// if any value equals target, return the position
+	// else:
+		//traverse the list from the middle+1 to length-1
+		//if any value equals target, return the position
+	//return -1 if target can't be found.
+	
+	//System.out.println(al.size());
+	
+	int tPos = -1; //init return var to flag value -1
+    int m = (lo + hi) / 2; //init mid pos var
+
+    while( lo <= hi ) { // run until lo & hi cross
+     // m = (lo + hi) / 2; //update mid pos var
+
+      // target found
+      if ( (int)al.get(m) == target )
+        return m;
+
+      // value at mid index higher than target
+      else if ( (int)al.get(m) > target )
+        hi = m - 1; //move hi to index to left of mid
+
+      // value at mid index lower than target
+      else if ( (int)al.get(m) < target )
+        lo = m + 1; //move lo to index to right of mid
+    }
+    return tPos;
+	
+	
+  }
+// end binSearch()
+
+*/
+
+
+
 
 
 
@@ -53,13 +89,13 @@ public class Boogle
   //return ArrayList of random ints on range [lo,lo+hi)
   public static ArrayList prestoArrayListo(int numItems, int lo, int hi)
   {
-    ArrayList retArr = new ArrayList();
+   ArrayList retArr = new ArrayList();
 
     for(int i=0; i<numItems; i++) {
       //System.out.println(i);  //diagnostic under-the-hood view
-      //retArr.add( Math.random() ); // [0,1)
-      //retArr.add( (int)Math.random() ); // 0
-      //retArr.add( (int)(hi * Math.random()) ); // [0,hi)
+     // retArr.add( Math.random() ); // [0,1)
+      retArr.add( (int)Math.random() ); // 0
+      retArr.add( (int)(hi * Math.random()) ); // [0,hi)
       retArr.add( lo + (int)(hi * Math.random()) ); // [lo,lo+hi)
     }
     return retArr;
@@ -67,39 +103,35 @@ public class Boogle
 
 
   //return ArrayList of random ints, sorted in ascending order
-  public static ArrayList prestoSortedArrayListo(int numItems,
-                                                 int lo, int hi)
-  {
-    ArrayList retArr = new ArrayList();
+// public static ArrayList prestoSortedArrayListo(int numItems,int lo, int hi)
+  //{
+    //ArrayList retArr = new ArrayList();
 
     //if requested, return empty ArrayList
-    if ( numItems<1 )
-      return retArr;
+    //if ( numItems<1 )
+      //return retArr;
 
     //populate index 0
-    retArr.add( (int)(lo * Math.random()) );
+    //retArr.add( (int)(lo * Math.random()) );
 
     //populate rest of indices, each one greater than last
-    for(int i=1; i<numItems; i++) {
+    //for(int i=1; i<numItems; i++) {
       //System.out.println(i);  //diagnostic under-the-hood view
       //retArr.add( Math.random() ); // [0,1)
       //retArr.add( (int)Math.random() ); // 0
       //retArr.add( (int)(hi * Math.random()) ); // [0,hi)
       //retArr.add( lo + (int)(hi * Math.random()) ); // [lo,lo+hi)
       //System.out.println(retArr.get(i-1));
-      retArr.add( (int)retArr.get(i-1)
-                  + lo + (int)(hi * Math.random()) ); // ["left neighbour",hi)
-    }
+     //retArr.add( (int)retArr.get(i-1)
+      //            + lo + (int)(hi * Math.random()) ); // ["left neighbour",hi)
+    //}
 
-    return retArr;
-  }//end prestoSortedArrayListo()
+   // return retArr;
+//  }//end prestoSortedArrayListo()
 
-  //##################################################
-  //##################################################
-
-    // find and return the index of the smallest value in the
-    // ArrayList al from index lo to index hi inclusive 
-    public static int findSmallest(ArrayList<Integer> al, int lo, int hi){
+  public static int findSmallest(ArrayList<Integer> al, int lo, int hi){
+	// assume the first item is the smallest - call it our smallest so far
+	
 	int small = al.get(0);
 	
 	for (int i=1; i < al.size(); i++) {
@@ -108,14 +140,17 @@ public class Boogle
 		}
 	}
 	return small;
-
-    }
-
-
-  //##################################################
-  //##################################################
 	
+   }
+   
 public static void selectionSort(ArrayList al) {
+	/*
+	1. For loop to traverse the list; for (int i = 0; i < al.size-1; i++)
+	2. set temp = i; temp=al.get(i)...?
+	3. findSmallest() and store it in temp..i think. So now, smallest is temp.
+	4. Put al[0] at wherever i was
+	5. Then, put temp into al[0]
+	*/
 	
 	//first loop:
 	//traverse the list
@@ -132,38 +167,26 @@ public static void selectionSort(ArrayList al) {
 	int temp;
 	int startIndex;
 	
-	if (al[0] == null) {
-		return null;
-	}
 	
 	for (int i = 0; i < al.size() - 2; i++) {
 		startIndex = 0;
 		temp = findSmallest(al, startIndex, al.size());
-		al[i] = al[startIndex]
-		al[startIndex] = temp;
+		al.get(i) = al.get(startIndex); //i get errors starting from here
+		al.get(startIndex) = temp;
 		startIndex ++;
 	}
-		
-		
-		
 	
-
-
+	//because of the syntax errors, I can't get it to compile,
+	//and I don't know enough Java to figure out what the correct
+	//syntax is............*sobs*
+	
+}
   public static void main( String[] args )
   {
+	  
+	ArrayList <Integer> myList = prestoArrayListo( 5, 1, 5);
+	
 
-      
-    /*~~~~v~~~~~~move~me~down~~~1~block~at~a~time~~~~~~~~~~v~~~~
-      
-      int smallIndex;
-      System.out.println("Testing findSmallest");
-      ArrayList<Integer>  slist = prestoArrayListo(20,0,200);
-      smallIndex = findSmallest(slist,0,slist.size());
-      System.out.println(slist);
-      System.out.printf("Smallest is at slist[%d] and is %d\n",smallIndex,slist.get(smallIndex));
-      
-      ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~*/
-
-}//end main
+  }//end main
 
 }//end class
