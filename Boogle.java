@@ -134,9 +134,11 @@ public class Boogle
 	
 	int small = al.get(0);
 	
+	
 	for (int i=1; i < al.size(); i++) {
 		if (small > al.get(i)) {
-			small = al.get(i); 
+			small = al.get(i);
+			
 		}
 	}
 	return small;
@@ -164,28 +166,51 @@ public static void selectionSort(ArrayList al) {
 	//keep going until everything is sorted; 2 items will be left at the end!
 	// ** create a temporary variable to hold the lowest value
 	
-	int temp;
-	int startIndex;
+	int smallPosition;
+	int smallValue;
 	
 	
 	for (int i = 0; i < al.size() - 2; i++) {
-		startIndex = 0;
-		temp = findSmallest(al, startIndex, al.size());
-		al.get(i) = al.get(startIndex); //i get errors starting from here
-		al.get(startIndex) = temp;
-		startIndex ++;
-		i++;
+		
+		smallValue = findSmallest(al, i, al.size()); //findSmallest returns the position of the smallest value found
+		
+
+		smallValue = (int) al.get(smallPosition);
+		
+		
+		
+		al.set(smallPosition, al.get(i));
+		al.set(i, al.get(smallValue));
+		
+		
+		/*
+		// IT COMPILEDDDD
+		//(int) was necessary in front of al.get(smallPosition).
+		//it's still hard to understand what's object and what's integer etc etc
+		//and it does not do what I want....lol
+		
+		*/
+		
 	}
 	
-	//because of the syntax errors, I can't get it to compile,
-	//and I don't know enough Java to figure out what the correct
-	//syntax is............*sobs*
+
 	
 }
   public static void main( String[] args )
   {
 	  
-	ArrayList <Integer> myList = prestoArrayListo( 5, 1, 5);
+	ArrayList<Integer> myList = new ArrayList<Integer>();
+	myList.add(6);
+	myList.add(2);
+	myList.add(8);
+	myList.add(4);
+	myList.add(3);
+	myList.add(1);
+	System.out.println(myList);
+	selectionSort(myList);
+	System.out.println(myList);
+	
+	
 	
 
   }//end main
