@@ -1,5 +1,5 @@
 /**
-   classwork -- Day 10 | 0b1010 | 0x10
+   classwork -- Day 11 | 0b1011 | 0x0b
    class: Boogle
    A tester class for code analysis and search exploration.
    USAGE:
@@ -37,28 +37,16 @@ public class Boogle
 
 
   //return index of target, or -1 if not found
- //public static int binSearch( ArrayList al, int target )
-  //{
-    // use size() to check for the size/length of the array
-	//minimum is always 0(because index starts at 0), so i guess it won't matter
-	//you can just do length-1 for the maximum
-	
-	// int middle = divide the length-1 by 2 (is it rounded down automatically?)
-	// traverse the list from index 0 to the middle
-	// if any value equals target, return the position
-	// else:
-		//traverse the list from the middle+1 to length-1
-		//if any value equals target, return the position
-	//return -1 if target can't be found.
-	
-	//System.out.println(al.size());
-	
-	
-  //  return -1; //placeholder to get past compiler
-//  }//end binSearch()
+  public static int binSearch( ArrayList al, int target )
+  {
+    // <INSERT YOUR MACHINERY HERE>...
+    return -1; //placeholder to get past compiler
+  }//end binSearch()
 
 
 
+	 
+	
   // subgoal: recognize target found (and take what action?)
   // subgoal: recognize search space exhausted (and take what action?)
   // subgoal: recognize target in lower portion of range (and do what?)
@@ -73,13 +61,13 @@ public class Boogle
   //return ArrayList of random ints on range [lo,lo+hi)
   public static ArrayList prestoArrayListo(int numItems, int lo, int hi)
   {
-   ArrayList retArr = new ArrayList();
+    ArrayList retArr = new ArrayList();
 
     for(int i=0; i<numItems; i++) {
       //System.out.println(i);  //diagnostic under-the-hood view
-     // retArr.add( Math.random() ); // [0,1)
-      retArr.add( (int)Math.random() ); // 0
-      retArr.add( (int)(hi * Math.random()) ); // [0,hi)
+      //retArr.add( Math.random() ); // [0,1)
+      //retArr.add( (int)Math.random() ); // 0
+      //retArr.add( (int)(hi * Math.random()) ); // [0,hi)
       retArr.add( lo + (int)(hi * Math.random()) ); // [lo,lo+hi)
     }
     return retArr;
@@ -87,102 +75,104 @@ public class Boogle
 
 
   //return ArrayList of random ints, sorted in ascending order
-// public static ArrayList prestoSortedArrayListo(int numItems,int lo, int hi)
-  //{
-    //ArrayList retArr = new ArrayList();
+  public static ArrayList prestoSortedArrayListo(int numItems,
+                                                 int lo, int hi)
+  {
+    ArrayList retArr = new ArrayList();
 
     //if requested, return empty ArrayList
-    //if ( numItems<1 )
-      //return retArr;
+    if ( numItems<1 )
+      return retArr;
 
     //populate index 0
-    //retArr.add( (int)(lo * Math.random()) );
+    retArr.add( (int)(lo * Math.random()) );
 
     //populate rest of indices, each one greater than last
-    //for(int i=1; i<numItems; i++) {
+    for(int i=1; i<numItems; i++) {
       //System.out.println(i);  //diagnostic under-the-hood view
       //retArr.add( Math.random() ); // [0,1)
       //retArr.add( (int)Math.random() ); // 0
       //retArr.add( (int)(hi * Math.random()) ); // [0,hi)
       //retArr.add( lo + (int)(hi * Math.random()) ); // [lo,lo+hi)
       //System.out.println(retArr.get(i-1));
-     //retArr.add( (int)retArr.get(i-1)
-      //            + lo + (int)(hi * Math.random()) ); // ["left neighbour",hi)
-    //}
+      retArr.add( (int)retArr.get(i-1)
+                  + lo + (int)(hi * Math.random()) ); // ["left neighbour",hi)
+    }
 
-   // return retArr;
-//  }//end prestoSortedArrayListo()
+    return retArr;
+  }//end prestoSortedArrayListo()
+
+  //##################################################
+  //##################################################
+
+    // find and return the index of the smallest value in the
+    // ArrayList al from index lo to index hi inclusive 
+    public static int findSmallest(ArrayList<Integer> al, int lo, int hi){
+	// assume the first item is the smallest - call it our smallest so far
+	
+
+	// loop over all the items
+	//   if the current item is smaller than the smalleest so far,
+	//      then the current item becomes the new smallest so far
+
+
+	// change this to return the correct answer
+	return -1;
+    }
+
+
+  //##################################################
+  //##################################################
+	
+public static void selectionSort(ArrayList al) {
+	
+	//first loop:
+	//traverse the list
+	//find lowest
+	//swap the lowest value with index 0
+	//increase the starting index to 1
+	//second loop:
+	//traverse the list
+	//find lowest
+	//swap the lowest value with index 1
+	//keep going until everything is sorted; 2 items will be left at the end!
+	// ** create a temporary variable to hold the lowest value
+	
+	int temp;
+	int startIndex;
+	
+	if (al[0] == null) {
+		return null;
+	}
+	
+	for (int i = 0; i < al.size() - 2; i++) {
+		startIndex = 0;
+		temp = findSmallest(al, startIndex, al.size());
+		al[i] = al[startIndex]
+		al[startIndex] = temp;
+		startIndex ++;
+	}
+		
+		
+		
+	
 
 
   public static void main( String[] args )
   {
-   
-   // System.out.println("\n"+"al000"+":");
-    //ArrayList al000 = prestoArrayListo(0,0,0);
-    //System.out.println(al000);
-    //System.out.println(linSearch(al000,3));
-    //System.out.println("\n"+"al01"+":");
-    //ArrayList al01 = prestoArrayListo(5,0,100);
-    //System.out.println(al01);
-    //System.out.println(linSearch(al01,3));
-    //System.out.println("\n"+"al02"+":");
-    ArrayList al02 = prestoArrayListo(5,3,10);
-    System.out.println(al02);
-    //System.out.println(linSearch(al02,3));
-    //System.out.println("\n"+"al05"+":");
-    //ArrayList al05 = prestoArrayListo(20,1,5);
-    //System.out.println(al05);
-    //System.out.println(linSearch(al05,3));
-    
 
-
-    // test battery using sorted ArrayLists as search space
+      
     /*~~~~v~~~~~~move~me~down~~~1~block~at~a~time~~~~~~~~~~v~~~~
-    System.out.println("\n"+"sal000"+":");
-    ArrayList sal000 = prestoSortedArrayListo(0,0,0);
-    System.out.println(sal000);
-    System.out.println(linSearch(sal000,3));
-    System.out.println(binSearch(sal000,3));
-    System.out.println("\n"+"sal00"+":");
-    ArrayList sal00 = prestoSortedArrayListo(5,0,100);
-    System.out.println(sal00);
-    System.out.println(linSearch(sal00,3));
-    System.out.println(binSearch(sal00,3));
-    System.out.println("\n"+"sal01"+":");
-    ArrayList sal01 = prestoSortedArrayListo(5,0,100);
-    System.out.println(sal01);
-    System.out.println(linSearch(sal01,3));
-    System.out.println(binSearch(sal01,3));
-    System.out.println("\n"+"sal02"+":");
-    ArrayList sal02 = prestoSortedArrayListo(5,3,100);
-    System.out.println(sal02);
-    System.out.println(linSearch(sal02,3));
-    System.out.println(binSearch(sal02,3));
-    System.out.println("\n"+"sal03"+":");
-    ArrayList sal03 = prestoSortedArrayListo(5,0,100);
-    System.out.println(sal03);
-    System.out.println(linSearch(sal03,3));
-    System.out.println(binSearch(sal03,3));
-    System.out.println("\n"+"sal04"+":");
-    ArrayList sal04 = prestoSortedArrayListo(20,0,3);
-    System.out.println(sal04);
-    System.out.println(linSearch(sal04,3));
-    System.out.println(binSearch(sal04,3));
-    System.out.println("\n"+"sal05"+":");
-    ArrayList sal05 = prestoSortedArrayListo(20,1,5);
-    System.out.println(sal05);
-    System.out.println(linSearch(sal05,3));
-    System.out.println(binSearch(sal05,3));
+      
+      int smallIndex;
+      System.out.println("Testing findSmallest");
+      ArrayList<Integer>  slist = prestoArrayListo(20,0,200);
+      smallIndex = findSmallest(slist,0,slist.size());
+      System.out.println(slist);
+      System.out.printf("Smallest is at slist[%d] and is %d\n",smallIndex,slist.get(smallIndex));
+      
       ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~*/
 
-    //batch of commands for easier test case generation:
-    /*
-    System.out.println("\n"+"al"+":");
-    ArrayList al = prestoArrayListo(,,);
-    System.out.println(al);
-    System.out.println(linSearch(al, ));
-    System.out.println(binSearch(al, ));
-    */
-  }//end main
+}//end main
 
 }//end class
