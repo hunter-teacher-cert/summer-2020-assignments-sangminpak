@@ -39,22 +39,21 @@ public class Boogle
   //return index of target, or -1 if not found
   public static int binSearch( ArrayList al, int target )
   {
-    // <INSERT YOUR MACHINERY HERE>...
-    return -1; //placeholder to get past compiler
+    	int small = al.get(0);
+	
+	for (int i=1; i < al.size(); i++) {
+		if (small > al.get(i)) {
+			small = al.get(i); 
+		}
+	}
+	return small;
   }//end binSearch()
 
 
 
 	 
 	
-  // subgoal: recognize target found (and take what action?)
-  // subgoal: recognize search space exhausted (and take what action?)
-  // subgoal: recognize target in lower portion of range (and do what?)
-  // subgoal: recognize target in upper portion of range (and do what?)
 
-  //nota bene: A helper method could be very useful.
-  // Q: Why?
-  // Q: What would the parameters be for such a method?
 
 
 
