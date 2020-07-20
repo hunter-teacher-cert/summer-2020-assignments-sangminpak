@@ -11,6 +11,7 @@ public class Driver{
 		
 		//t.search(15);
 		//t.search(8);
+		/*
 		try {
 		t.search(33);
 		}
@@ -18,6 +19,9 @@ public class Driver{
 		catch (NullPointerException e) {
 			System.out.println("key not found");
 		}
+		*/
+		
+		t.insert(17);
 	
 	}
 }
