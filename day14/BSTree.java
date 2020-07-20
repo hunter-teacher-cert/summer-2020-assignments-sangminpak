@@ -37,6 +37,10 @@ public class BSTree {
 	public int search(int key){
 		TreeNode current = root;
 		
+		if (current == null) {
+			return -1;
+		}
+		
 		while (current.getData() != key) {
 		int currentData = current.getData();
 		
@@ -55,10 +59,49 @@ public class BSTree {
 	
 	}
 	
+	public int insert(int key){
+		TreeNode timmy = root;
+		TreeNode tommy;
+		TreeNode newNode = new TreeNode(key);
+		
+		/*
+		if (timmy == null) {
+			timmy = newNode;
+			return -1;
+		}
+		*/
+		
+		while (timmy.getData() != key && timmy != null) {
+		int timmyData = timmy.getData();
+		
+			if (timmyData > key) {
+				tommy = timmy;
+				timmy = timmy.getLeft();
+				System.out.println("Timmy is: " + timmy.getData());
+				System.out.println("Tommy is: " + tommy.getData());
+			}
+			if (timmyData < key) {
+				tommy = timmy;
+				timmy = timmy.getRight();
+				System.out.println("Timmy is: " + timmy.getData());	
+				System.out.println("Tommy is: " + tommy.getData());
+		}
+		
+		if (timmy == null) {
+			timmy = newNode;
+			return newNode.getData();
+	}
 	
+
+	
+	}
+	
+		return -1;
 	
 
 
 
+
+}
 
 }
