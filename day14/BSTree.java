@@ -36,22 +36,23 @@ public class BSTree {
 	
 	public int search(int key){
 		TreeNode current = root;
+		
+		while (current.getData() != key) {
 		int currentData = current.getData();
-		while (currentData != key){
 		
-			if (key < currentData) {
+			if (currentData > key) {
 				current = current.getLeft();
-				System.out.println(currentData);
+				System.out.println(current.getData());
 			}
-			if (key > currentData) {
+			if (currentData < key) {
 				current = current.getRight();
-				System.out.println(currentData);
-			}
-
-		
-			
+				System.out.println(current.getData());	
 		}
-		return currentData;
+		
+	}
+	
+	return -1;
+	
 	}
 	
 	
