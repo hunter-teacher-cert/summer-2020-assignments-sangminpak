@@ -71,32 +71,28 @@ public class BSTree {
 		}
 		*/
 		
-		while (timmy.getData() != key && timmy != null) {
+		while (timmy != null) {
 		int timmyData = timmy.getData();
 		
 			if (timmyData > key) {
 				tommy = timmy;
 				timmy = timmy.getLeft();
-				System.out.println("Timmy is: " + timmy.getData());
-				System.out.println("Tommy is: " + tommy.getData());
+				System.out.println(timmy.getData());
+				
 			}
 			if (timmyData < key) {
 				tommy = timmy;
 				timmy = timmy.getRight();
-				System.out.println("Timmy is: " + timmy.getData());	
-				System.out.println("Tommy is: " + tommy.getData());
+				System.out.println(timmy.getData());	
+		
 		}
 		
-		if (timmy == null) {
-			timmy = newNode;
-			return newNode.getData();
 	}
 	
 
 	
-	}
-	
-		return -1;
+		timmy = newNode;
+		return newNode.getData();
 	
 
 
