@@ -65,8 +65,8 @@ public class BSTree {
 		TreeNode newNode = new TreeNode(key);
 		
 		
-		if (timmy == null) {
-			timmy = newNode;
+		if (root == null) {
+			root= newNode;
 			return ;
 		}
 	
