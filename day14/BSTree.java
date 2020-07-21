@@ -94,10 +94,10 @@ public class BSTree {
 		
 		}
 	
-		if (key > timmy.getData()) {
-				timmy.setRight(newNode);
+		if (key > tommy.getData()) {
+				tommy.setRight(newNode);
 		} else {
-			timmy.setLeft(newNode);
+			tommy.setLeft(newNode);
 		}
 	
 	return ;
