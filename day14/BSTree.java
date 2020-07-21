@@ -61,39 +61,43 @@ public class BSTree {
 	
 	public int insert(int key){
 		TreeNode timmy = root;
-		TreeNode tommy;
+		TreeNode tommy = root;
 		TreeNode newNode = new TreeNode(key);
 		
-		/*
+		
 		if (timmy == null) {
 			timmy = newNode;
 			return -1;
 		}
-		*/
+	
 		
 		while (timmy != null) {
 		int timmyData = timmy.getData();
-		
-			if (timmyData > key) {
-				tommy = timmy;
-				timmy = timmy.getLeft();
-				System.out.println(timmy.getData());
+			if (timmyData == key) {
+				return -1;
+			} else {
+				if (timmyData > key) {
+					tommy = timmy;
+					timmy = timmy.getLeft();
+					System.out.println(timmy.getData());
 				
+				} else {
+					
+					tommy = timmy;
+					timmy = timmy.getRight();
+				}	System.out.println(timmy.getData());	
+		
 			}
-			if (timmyData < key) {
-				tommy = timmy;
-				timmy = timmy.getRight();
-				System.out.println(timmy.getData());	
 		
 		}
-		
-	}
 	
-
+		if (key > tommy.getData()) {
+				tommy.setRight(newNode);
+		} else {
+			tommy.setLeft(newNode);
+		}
 	
-		timmy = newNode;
-		return newNode.getData();
-	
+	return newNode.getData();
 
 
 
