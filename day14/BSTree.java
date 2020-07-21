@@ -34,6 +34,87 @@ public class BSTree {
 	
 	}
 	
+	//preorder traversal, because you're processing in front
+	
+	private void traverse(TreeNode current) {
+		
+		if (current == null)
+			return;
+		
+		//process the current node
+		System.out.print(current.getData() + ", ");
+		
+		//recursively print out the left subtree
+		traverse(current.getLeft());
+		
+		//recursively print out the right subtree
+		traverse(current.getRight());
+		
+	}
+	
+	public void traverse() {
+		traverse(root);
+		System.out.println();
+	
+	
+	}
+	
+	//postorder traversal; process at the end
+	
+	private void traverse2(TreeNode current) {
+		
+		if (current == null)
+			return;
+		
+	
+		
+		//recursively print out the left subtree
+		traverse2(current.getLeft());
+		
+		//recursively print out the right subtree
+		traverse2(current.getRight());
+		
+			//process the current node
+		System.out.print(current.getData() + ", ");
+	}
+	
+	public void traverse2() {
+		traverse2(root);
+		System.out.println();
+	
+	
+	}
+	
+	//inorder traversal; prints values in order
+	private void traverse3(TreeNode current) {
+		
+		if (current == null)
+			return;
+		
+	
+		
+		//recursively print out the left subtree
+		traverse3(current.getLeft());
+		
+		//process the current node
+		System.out.print(current.getData() + ", ");
+		
+		
+		//recursively print out the right subtree
+		traverse3(current.getRight());
+		
+			
+		
+	}
+	
+	public void traverse3() {
+		traverse3(root);
+		System.out.println();
+	
+	
+	}
+	
+	
 	public int search(int key){
 		TreeNode current = root;
 		
@@ -95,5 +176,78 @@ public class BSTree {
 		}
 	System.out.println(newNode.getData());
 }
+
+public void delete (int key){
+	
+	
+	
+	//if the tree is empty
+	//manually insert the new node as the root
+	if (root == null) {
+		return;
+	}
+	
+	
+	//find the node that we want to delete
+	//and the node above it using piggybacking
+	//we should look for the smallest from the right OR
+	//largest from the left
+
+	TreeNode front = root;
+	TreeNode trailier = root;
+	
+	//doo the piggyback loop
+	//until we either find the node or null
+	//if the key isn't present
+	
+	while (front != null && front.getData() != key) {
+		if (front.getData() < key) {
+			trailer = front;
+			front = front.getRight();
+		} else {
+			trailer = front;
+			front = front.getLeft();
+		}
+	}
+	
+	//if the key wasn't in the tree
+	if (front == null) {
+		return;
+	}
+	
+	//if we get here
+	//front points to the node we want to delete
+	//and trailer points to the one above it
+	
+	//case 1 -- the node we want to delete is a leaf
+	if (front.getLeft() == null && front.getRight() == null) {
+	
+	
+	//repoint front's parent to null
+	trailer = null;
+	
+	} 
+	//case 2
+	/* else if ( (front.getLeft() != null && front.getRight() == null) || (front.getRight() != null && front.getLeft() == null))
+		//check to see if front has one child ) {
+			trailer = front.getLeft() OR trailer = front.getRight()
+		//repoint front's parent to front's child
+	
+	//case 3
+	} else {
+		front has two children
+		
+		find the node with the largest value on front's left subtree
+		and replace front with it. (go left once, and go right all the 
+		way to the end)
+		
+		//is it possible to use the search()? do i have to keep track of
+		what values are entered? if, not, I would do something like
+		//getLeft -> getRight until getRight is null
+		//then, that last node is the front.
+
+
+}
+	
 
 }
