@@ -1,0 +1,50 @@
+public class Person {
+
+
+/*
+
+since phonebooks store data by last name,
+the array can hold ASCII code of the first letter of the last name.....
+Once you do that, (to make my life easier) just store people's names and phone #...
+
+So from the assignment page, it seems like we are creating 3 variables:
+firstName
+lastName
+phoneNumber
+
+and ALL are string!
+
+if we use charAt(), it returns ASCII value.
+So, for example:
+
+String s = "ABC";
+int i = s.charAt(0);
+
+Therefore, if you do
+String lastName = "pak";
+int i = lastName.charAt(0);
+
+i is 112.
+HOWEVER, ASCII code is different for lowercase and capital letters! So maybe it's important to enter names in all capital or all lowercase..
+
+And then.... hash function can be used to create address for the person's full name... (sum of ASCII for the full name mod 2069 or sth) and then that can be 
+their index in the bigger array... but will this take too long??? array within an array??
+and THEN store phone numbers there...
+
+But according to what we read, array with linked list was the fastest!
+So, maybe in each node, I have no idea if it's possible, but maybe we can store multiple things, like person's full last name, first name, and phone number...
+
+
+}
+
+public class PhoneBook {
+
+1. convert the first letter of the person's last name into ASCII code
+2. use that as index to find the correct position
+3. go down the linked list to find the right person
+4. print out first name, last name, and phone number of the person.
+
+For the reverse search,
+maybe we can use the search() we made while we were learning linked list and apply it here...
+
+}
